@@ -4,38 +4,35 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                echo '1. Dang don dep solution...'
-                // Build file solution de lam viec voi nhieu project
-                bat 'dotnet clean JenkinsDemo.sln'
+                echo '1. Don dep...'
+                bat 'dotnet clean'
             }
         }
 
         stage('Restore') {
             steps {
-                echo '2. Dang tai thu vien cho ca solution...'
-                bat 'dotnet restore JenkinsDemo.sln'
+                echo '2. Tai thu vien...'
+                bat 'dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
-                echo '3. Dang build solution .NET 8...'
-                // Build file solution, no se xu ly duoc 2 project rieng biet
-                bat 'dotnet build JenkinsDemo.sln --configuration Release'
+                echo '3. Build .NET 8...'
+                bat 'dotnet build --configuration Release'
             }
         }
 
-        stage('Unit Test') {
+        stage('Run App') {
             steps {
-                echo '4. Dang chay test...'
-                // Test solution
-                bat 'dotnet test JenkinsDemo.sln --no-build --configuration Release --verbosity normal'
+                echo '4. Chay ung dung thu...'
+                bat 'dotnet run --configuration Release'
             }
         }
 
-        stage('Archive Artifacts') {
+        stage('Archive') {
             steps {
-                echo '5. Luu tru file .exe...'
+                echo '5. Luu file .exe...'
                 archiveArtifacts artifacts: '**/bin/Release/*.exe', allowEmptyArchive: true
             }
         }
