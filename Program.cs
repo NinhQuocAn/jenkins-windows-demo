@@ -2,6 +2,6 @@ using System;
 
 class Program {
     static void Main() {
-        Console.WriteLine("Hello World from Jenkins on Windows!");
+        Console.WriteLine("Chao mung den voi CI/CD Windows - Thanh cong!");
     }
 }
