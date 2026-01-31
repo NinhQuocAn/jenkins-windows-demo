@@ -4,6 +4,6 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Hello World CI/CD djndk!");
+        Console.WriteLine("Hello World CI/CD djndk hiiiii!");
     }
 }
